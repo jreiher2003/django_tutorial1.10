@@ -1,0 +1,3 @@
+*.db
+*.pyc 
+django_commands.txt
