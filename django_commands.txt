@@ -1,0 +1,38 @@
+django-admin.py startproject trydjango
+python manage.py runserver 0.0.0.0:port  --->> 127.0.0.1:port in browser 
+python manage.py migrate
+python manage.py createsuperuser  -u vagrant -p password 
+/admin 
+### show all commands 
+python manage.py 
+
+#################################
+## start new app video 6 of 38 ##
+#################################
+python manage.py startapp posts 
+/posts/models.py 
+create Post class with title content, update, timestamp, __unicode__ function 
+/src/trydjango/settings.py 
+add 'posts' to settings.py --> INSTALLED_APPS   
+#### UPDATE django application
+python manage.py migrate
+#### UPDATE django database
+python manage.py makemigration
+python manage.py migrate --> post model in database.  
+
+
+####################################
+## register Post model with admin ##
+####################################
+posts/admin.py  add --
+from .models import Post
+admin.site.register(Post)
+-- check go to python manage.py 0.0.0.0:8100/admin and posts should be there.  
+
+#####################################
+## 8 of 38 custom admin #############
+#####################################
+/src/posts/admin.py  
+add PostModelAdmin class and add to register
+add list_display, list_display_links, and list_filters
+
