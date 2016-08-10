@@ -110,3 +110,17 @@ great django url regex reference [https://github.com/codingforentrepreneurs/Guid
 `def post_detail(request, id):`  
 ---> /src/posts/urls.py name="post_detail"
 `<a href='{% url "post_detail" id=obj.id %}'>{{ obj.title }}</a>`
+
+## Model Form & Create View  
+---> /src/posts/forms.py  
+
+## Instance Update View or Edit
+---> /src/posts/views.py 
+
+## Form flash messages
+## Template inheritance  
+## Setup Static Files - CSS & Javascript & Images
+---> /src/settings.py /src/urls.py  
+`python manage.py collectstatic`  sends development static files to cdn static folder  
+
+
