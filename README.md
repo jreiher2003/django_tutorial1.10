@@ -102,4 +102,11 @@ for object in queryset:
     print object.content
 ```
 
-
+## Dynamic URL's 
+great django url regex reference [https://github.com/codingforentrepreneurs/Guides/blob/master/all/common_url_regex.md](here)
+---> /src/posts/urls.py  
+`url(r'^detail/(?P<id>\d+)$', views.post_detail, name="post_detail"),`
+---> /src/posts/.views.py  
+`def post_detail(request, id):`  
+---> /src/posts/urls.py name="post_detail"
+`<a href='{% url "post_detail" id=obj.id %}'>{{ obj.title }}</a>`

@@ -6,8 +6,8 @@ from .models import Post
 def post_create(request):
     return HttpResponse("<h1>Create!</h1>")
 
-def post_detail(request):
-    instance = get_object_or_404(Post,title="New Title")
+def post_detail(request, id):
+    instance = get_object_or_404(Post,id=id)
     context = {"title": "Detail Title", "instance": instance}
     return render(request, "post_detail.html", context)
 
@@ -17,7 +17,7 @@ def post_list(request):
     # else:
     #     context = {"title": "Not logged in"}
     queryset = Post.objects.all()
-    context = {"title": "List Title", "queryset": queryset}
+    context = {"title": "List Title", "object_list": queryset}
     return render(request, "index.html", context)
 
 def post_update(request):

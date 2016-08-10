@@ -19,5 +19,5 @@ from posts import urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^posts/', include(urls)),
+    url(r'^posts/', include(urls, namespace="posts")),
 ]
