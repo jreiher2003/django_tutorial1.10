@@ -28,7 +28,7 @@ add 'posts' to settings.py --> INSTALLED_APPS
 from .models import Post
 admin.site.register(Post)
 ```
--- check go to `python manage.py 0.0.0.0:8100/admin` and posts should be there.  
+---> check go to `python manage.py 0.0.0.0:8100/admin` and posts should be there.  
 
 #### Customize admin  
 [https://docs.djangoproject.com/en/1.10/ref/contrib/admin/](django admin doc)  
@@ -74,5 +74,32 @@ urlpatterns = [
 ]
 ```
 
+## Templates 
+---> /root/src/settings.py add --  TEMPLATES
+`'DIRS': [os.path.join(BASE_DIR, 'templates')],`  
+---> /root/src/posts/views.py  
+```
+def post_list(request):
+    return render(request, "index.html", {})
+```
+
+## QuerySet Basics - python shell related to django   
+`python manage.py shell`  
+```
+>>>from posts.models import Post` 
+>>>Post.objects.all()
+<QuerySet [<Post: this is a title>, <Post: test title>]>
+>>>Post.objects.filter(title="abc")
+[]
+>>>Post.objects.create(title="New Title", content="New Content")
+<Post: New Title>
+>>> Post.objects.all()
+<QuerySet [<Post: this is a title>, <Post: test title>, <Post: New Title>]>
+queryset = Post.objects.all()
+for object in queryset:
+    print object.id
+    print object.title
+    print object.content
+```
 
 
