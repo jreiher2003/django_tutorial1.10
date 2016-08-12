@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load urlify %}
 {% block title %}{{ instance.title }} | {{ block.super }}{% endblock title %}
 <style>
     {% block style %}
@@ -16,8 +17,38 @@
             {% if instance.image %}
             <img src="{{ instance.image.url }}" class="img-responsive">
             {% endif %}
-        <h1>{{ title }}&nbsp;<small>{{ instance.timestamp }}</small></h1>
+        <h1>{{ title }}&nbsp;<small>{% if instance.draft %}<span style="color: red"><\Draft> </span>{{ instance.publish }}{% else %}{{ instance.publish }}{% endif %}</small>
+        </h1>
+        <div class="fb-like" 
+            data-href="{{ request.build.uri }}" 
+            data-layout="button_count" 
+            data-action="like" 
+            data-size="small" 
+            data-show-faces="true" 
+            data-share="false">
+        </div>
+        <br>
+        <hr>
+        <!-- <p><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build.uri }}">
+            Facebook
+        </a>
+        <a href="https://twitter.com/home?status={{ instance.content | urlify }}%20{{ request.build.uri }}">
+            Twitter
+        </a>
+        <a href='https://plus.google.com/share?url={{ request.build.uri }}'>Google</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build.uri }}&title={{ instance.title }}&summary={{ share_string }}&source={{ request.build.uri }}">
+        Linkedin
+        <a href="http://www.reddit.com/submit?url={{ request.build.uri }}&title={{ instance.title }}">Reddit</a>
+        </a></p> -->
+        {% if instance.user.get_full_name %}
+        <p><strong>Author:</strong> {{ instance.user.get_full_name }}</p>
+        {% endif %}
         {{ instance.content | linebreaks }}
+        <hr>
+       <!--  {{ request.build.uri }}
+        {{ share_string }}<br>
+        {{ instance.content | urlify }}<br> -->
+        <div class="fb-comments" data-href="{{ request.build.uri }}" data-numposts="5"></div>
         </div>
     </div>
 </div>

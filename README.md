@@ -161,3 +161,27 @@ urlpatterns = [
 for each functions there are 3 "id" that need to be modified.
 
 ## Social Share Links
+`{{ request.build.uri }}`
+`from urllib import quote_plus`    
+`share_string = quote_plus(instance.content)`  
+
+## Custom Template Tag filter  
+this will let us turn any string to something we can share.  
+---> src/posts/templatetags/urlify.py  
+```
+from urllib import quote_plus 
+from django import template
+
+register = template.Library()
+
+@register.filter 
+def urlify(value):
+    return quote_plus(value)
+```
+`{{ instance.content | urlify }}`  
+
+## Basic User Permissions 
+## Item Publish Date & Draft  
+## Model Managers & Handling Drafts
+## Search Posts
+[here](https://docs.djangoproject.com/ja/1.9/topics/db/queries/)
