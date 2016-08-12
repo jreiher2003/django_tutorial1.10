@@ -19,7 +19,7 @@ add 'posts' to settings.py --> INSTALLED_APPS
 
 #### Update django application database  
 `python manage.py migrate`  
-`python manage.py makemigration`  
+`python manage.py makemigrations`  
 `python manage.py migrate` --> post model in database.  
 
 #### Register Post model with admin  
@@ -109,7 +109,13 @@ great django url regex reference [https://github.com/codingforentrepreneurs/Guid
 ---> /src/posts/.views.py  
 `def post_detail(request, id):`  
 ---> /src/posts/urls.py name="post_detail"
-`<a href='{% url "post_detail" id=obj.id %}'>{{ obj.title }}</a>`
+```
+<a href='{% url "post_detail" id=obj.id %}'>{{ obj.title }}</a>
+<a href='/posts/{{ obj.id }}'>{{ obj.title }}</a>
+{% url "posts:post_detail" id=obj.id %}
+<a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a>
+<a href='{% url "posts:post_detail" id=obj.id %}'>{{ obj.title }}</a>
+```
 
 ## Model Form & Create View  
 ---> /src/posts/forms.py  
@@ -123,4 +129,35 @@ great django url regex reference [https://github.com/codingforentrepreneurs/Guid
 ---> /src/settings.py /src/urls.py  
 `python manage.py collectstatic`  sends development static files to cdn static folder  
 
+## Implement Bootstrap New things learnt
+` <p>{{ obj.content | linebreaks | truncatechars:130 }}</p>`
+`{{ obj.timestamp|timesince }}`
+`{{ instance.content | linebreaks }}`
+` {% cycle "" "</div><div class='col-sm-12'><hr></div><div class='row'>" %}`
 
+## Pagination by QuerySet
+[here](https://docs.djangoproject.com/en/1.9/topics/pagination/)  
+`queryset = Post.objects.all().order_by("-timestamp")`  
+
+## File Uploads with FileField and ImageField
+1. models - ImageField or FileField 
+2. change upload location by function 
+3. html - <form enctype="multipart/form-data">  
+4. views - request.FILES or None
+
+## SlugField
+plus code in vid.
+1- First you have to change your urlpatterns in the posts/urls.py for something like this:
+```
+urlpatterns = [
+    url(r'^$', post_list, name='list'),
+    url(r'^create/$', post_create),
+    url(r'^(?P<slug>[\w-]+)/$', post_detail, name='detail'),
+    url(r'^(?P<slug>[\w-]+)/edit/$', post_update, name='update'),
+    url(r'^(?P<slug>[\w-]+)/delete/$', post_delete),
+]
+```
+2- Go to your posts/views.py and replace (in the post_detail, post_update and post_delete) "id" for "slug".
+for each functions there are 3 "id" that need to be modified.
+
+## Social Share Links
