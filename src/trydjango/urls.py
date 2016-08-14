@@ -17,11 +17,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
-from posts import urls
+from posts import urls as post_urls
+from newsletter import urls as newsletter_urls
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^posts/', include(urls, namespace="posts")),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^posts/', include(post_urls, namespace="posts")),
+    url(r'^newsletter/', include(newsletter_urls))
 ]
 
 if settings.DEBUG:
