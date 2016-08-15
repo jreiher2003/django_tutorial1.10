@@ -17,6 +17,9 @@ show all available commands
 ---> /src/trydjango/settings.py   
 add 'posts' to settings.py --> INSTALLED_APPS  
 
+## models  
+[here](https://docs.djangoproject.com/en/1.10/ref/models/fields/)
+
 #### Update django application database  
 `python manage.py migrate`  
 `python manage.py makemigrations`  
@@ -103,7 +106,7 @@ for object in queryset:
 ```
 
 ## Dynamic URL's 
-great django url regex reference [https://github.com/codingforentrepreneurs/Guides/blob/master/all/common_url_regex.md](here)
+great django url regex reference [here](https://github.com/codingforentrepreneurs/Guides/blob/master/all/common_url_regex.md)
 ---> /src/posts/urls.py  
 `url(r'^detail/(?P<id>\d+)$', views.post_detail, name="post_detail"),`
 ---> /src/posts/.views.py  
@@ -118,6 +121,8 @@ great django url regex reference [https://github.com/codingforentrepreneurs/Guid
 ```
 
 ## Model Form & Create View  
+[ModelForm docs](https://docs.djangoproject.com/en/1.10/topics/forms/modelforms/)
+[form docs](https://docs.djangoproject.com/en/1.10/ref/forms/api/)
 ---> /src/posts/forms.py  
 
 ## Instance Update View or Edit

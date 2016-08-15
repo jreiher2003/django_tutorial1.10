@@ -1,7 +1,16 @@
-{% extends "base.html" %}
-
+{% extends "base1.html" %}
+{% block title %}Yo | {{ block.super }}{% endblock title %}
 {% block content %}
 
-<h1>Hello Newsletter</h1>
+<h1>Hello {{ title }}</h1>
+<!-- {{ user }}, {{ request.user }} -->
+
+<form method="POST" action="">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Sign Up" />
+</form>
+
+
+
 
 {% endblock content %}
