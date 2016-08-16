@@ -190,3 +190,26 @@ def urlify(value):
 ## Model Managers & Handling Drafts
 ## Search Posts
 [here](https://docs.djangoproject.com/ja/1.9/topics/db/queries/)
+
+## Setup Email from 1.8  
+[docs](https://docs.djangoproject.com/en/1.10/topics/email/)
+---> src/trydjango/settings.py  
+```
+ALLOWED_HOSTS = []
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "me@jeffreiher.com"
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True 
+```
+If using gmail, you will need to unlock Captcha to enable Django to send for you.  
+[https://accounts.google.com/displayunlockcaptcha](https://accounts.google.com/displayunlockcaptcha)
+```
+send_mail(
+            form_subject,
+            contact_message,
+            from_email,
+            ['jreiher2003@yahoo.com'],
+            fail_silently=False,
+        )
+```
