@@ -1,16 +1,16 @@
 {% extends "base1.html" %}
-{% block title %}Yo | {{ block.super }}{% endblock title %}
+{% block title %}Newsletter | {{ block.super }}{% endblock title %}
 {% block content %}
-
-<h1>Hello {{ title }}</h1>
-<!-- {{ user }}, {{ request.user }} -->
-
-<form method="POST" action="">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Sign Up" />
-</form>
-
-
-
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+        {% include "jumbotron.html" %}
+        <h1>Hello {{ title }}</h1>
+        <form method="POST" action="">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Sign Up" />
+        </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}
