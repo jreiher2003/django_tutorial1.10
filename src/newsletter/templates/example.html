@@ -1,0 +1,46 @@
+{% extends "base1.html" %}
+{% block title %}Yo | {{ block.super }}{% endblock title %}
+{% block style %}
+    h1 {
+        color: blue;
+    }
+    [class^="col"] {
+    border: 1px solid red;
+  }
+{% endblock style %}
+
+{% block content %}
+{% include "jumbotron.html" %}
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+<div class="row">
+  <h1>Hello</h1>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+  <div class="col-md-1">.col-md-1</div>
+</div>
+<div class="row">
+  <div class="col-md-8">.col-md-8</div>
+  <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4">.col-md-4</div>
+  <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-md-6">.col-md-6</div>
+  <div class="col-md-6">.col-md-6</div>
+</div>
+</div>
+</div>
+{% endblock content %}

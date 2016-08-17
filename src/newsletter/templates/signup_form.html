@@ -1,7 +1,16 @@
-{% load crispy_forms_tags %}
-<h1 class="text-center">{{ title }}</h1>
-<form method="POST" action="">
-      {% csrf_token %}
-    {{ form | crispy }}
-    <input class="btn btn-primary btn-block" type="submit" value="Sign Up" />
-</form>
+
+<div class="row"><!-- col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 -->
+    <div class="col-sm-3 pull-right">
+        <p class="lead text-center">{{ title }}</p>
+        {% include "form.html" %}
+    </div>
+    <div class="col-sm-3">
+        <p class="lead text-center">Build with Django &amp; Bootstrap</p>
+    </div>
+    <div class="col-sm-3">
+        <p class="lead text-center">Created for starters of all kinds.</p>
+    </div>
+    <div class="col-sm-3">
+        <p class="lead text-center">Always Open Source</p>
+    </div>
+</div>
