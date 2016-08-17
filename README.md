@@ -1,4 +1,4 @@
-# Basic Django 1.10 tutorial 
+# Basic Django 1.8 and 1.9 tutorial done in 1.10 from cfe
 ### This readme is going to go over some basic commands to get a django python2.7 project going.  
 
 #### Begin project
@@ -131,7 +131,18 @@ great django url regex reference [here](https://github.com/codingforentrepreneur
 ## Form flash messages
 ## Template inheritance  
 ## Setup Static Files - CSS & Javascript & Images
----> /src/settings.py /src/urls.py  
+[docs](https://docs.djangoproject.com/en/1.10/howto/static-files/)
+---> /src/trydjango/settings.py /src/trydjango/urls.py  
+```
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    # '/var/www/static/',
+]
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn") 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn") 
+```
 `python manage.py collectstatic`  sends development static files to cdn static folder  
 
 ## Implement Bootstrap New things learnt
@@ -213,3 +224,5 @@ send_mail(
             fail_silently=False,
         )
 ```
+## crispy forms  
+[docs](http://django-crispy-forms.readthedocs.io/en/latest/)
