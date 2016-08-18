@@ -11,11 +11,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <style>
-        {% block style %}{% endblock style %}
-    </style>
+    <link rel="stylesheet" href="{% static 'css/newsletter.css' %}">
+    <style>{% block style %}{% endblock style %}</style>
   </head>
 <body>
 <div id="fb-root"></div>
@@ -27,9 +25,11 @@ js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=2345019
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
+{% include "navbar.html" %}
+<div class="container">
 {% include "messages_display.html" %}
-
 {% block content %}{% endblock %}
+</div>
 
   
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

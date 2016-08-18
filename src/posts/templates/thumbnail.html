@@ -1,0 +1,20 @@
+<div class="row">
+{% for obj in object_list %}
+    <div class="col-sm-12">
+        <div class="thumbnail">
+            {% if obj.image %}
+            <img src="{{ obj.image.url }}" class="img-responsive">
+            {% endif %}
+            <div class="caption">
+                {% if obj.draft %}<h3>Staff Only: Draft</h3>{% endif %} {% if obj.publish > today %}<h3>Staff Only: Future Post</h3>{% endif %}
+                <h3><a href='{% url "posts:post_detail" slug=obj.slug %}'>{{ obj.title }}</a><small>&nbsp;&nbsp;{{ obj.timestamp|timesince }} ago</small></h3>
+                {% if obj.user.get_full_name %}
+                <p>Author: {{ obj.user.get_full_name }}</p>
+                {% endif %}
+                <p>{{ obj.content | linebreaks | truncatechars:130 }}</p>
+                <p><a href='{% url "posts:post_detail" slug=obj.slug %}' class="btn btn-primary" role="button">View</a></p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
