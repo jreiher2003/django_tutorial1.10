@@ -24,9 +24,10 @@ from .views import about, contact
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^posts/', include(post_urls, namespace="posts")),
-    url(r'^newsletter/', include(newsletter_urls)),
+    url(r'^newsletter/', include(newsletter_urls, namespace="newsletter")),
     url(r'^about/$', about, name="about"),
     url(r'^contact/$', contact, name="contact"),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 ]
 
 if settings.DEBUG:

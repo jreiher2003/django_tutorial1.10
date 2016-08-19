@@ -42,7 +42,6 @@ EMAIL_USE_TLS = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -50,6 +49,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'posts',
     'newsletter',
+    'django.contrib.sites',
+    'registration',
+    'django.contrib.auth',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +142,16 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn") 
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
+# from django.contrib.messages import constants as messages
+# MESSAGE_TAGS = {
+#     messages.ERROR: 'danger',
+#     messages.SUCCESS: 'success',
+#     messages.INFO: 'info',
+#     messages.WARNING: 'warning',
+# }
+
+# registration
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+SITE_ID = 1
+LOGIN_REDIRECT_URL = "/newsletter/"

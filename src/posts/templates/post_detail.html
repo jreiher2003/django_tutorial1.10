@@ -9,6 +9,7 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
+            <a href="{% url 'posts:update' slug=instance.slug %}">edit</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{% url 'posts:delete' slug=instance.slug %}">delete</a>
             {% if instance.image %}
             <img src="{{ instance.image.url }}" class="img-responsive">
             {% endif %}
