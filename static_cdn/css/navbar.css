@@ -10,6 +10,12 @@ button.btn {
     background-color: #E01F7F;
     color: #eee;
 }
+.navbar-default .navbar-toggle:hover {
+    background-color: #E01F7F !important;
+}
+.navbar-default .navbar-toggle .icon-bar:hover {
+    background-color: #fff;
+}
 #navbar form div.form-group input.form-control {
     border: 1px solid #E01F7F;
     color: #1FE01F;
