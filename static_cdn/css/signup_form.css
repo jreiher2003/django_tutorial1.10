@@ -1,0 +1,8 @@
+input.btn.btn-block {
+    background-color: #E01F7F;
+    color: #eee;
+}
+input.form-control {
+    border: 1px solid #E01F7F;
+    color: #1FE01F;
+}

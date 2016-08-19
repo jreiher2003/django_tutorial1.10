@@ -1,0 +1,31 @@
+nav.navbar.navbar-default {
+    border: 1px solid #E01F7F;
+}
+
+.navbar-default .navbar-brand,.navbar-default .navbar-nav>li>a {
+    color: #E01F7F;
+}
+
+button.btn {
+    background-color: #E01F7F;
+    color: #eee;
+}
+#navbar form div.form-group input.form-control {
+    border: 1px solid #E01F7F;
+    color: #1FE01F;
+}
+input[type="text"]::-webkit-input-placeholder,input[type="password"]::-webkit-input-placeholder {
+   color: #1FE01F;
+}
+
+input[type="text"]:-moz-placeholder,input[type="password"]::-webkit-input-placeholder { /* Firefox 18- */
+   color: #1FE01F;  
+}
+
+input[type="text"]::-moz-placeholder,input[type="password"]::-webkit-input-placeholder {  /* Firefox 19+ */
+   color: #1FE01F;  
+}
+
+input[type="text"]:-ms-input-placeholder,input[type="password"]::-webkit-input-placeholder {  
+   color: #1FE01F;  
+}

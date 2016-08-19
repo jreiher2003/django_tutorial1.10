@@ -4,15 +4,20 @@
 
 {% block content %}
 <div class="row">
-<div class="col-sm-6 col-sm-offset-3">
+<div class="col-sm-4 col-sm-offset-4">
 <form method="post" action=".">
   {% csrf_token %} 
   {{ form | crispy }}
-  <input class="btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
+  <input class="btn btn-primary btn-block" type="submit" value="{% trans 'Log in' %}" />
   <input type="hidden" name="next" value="{{ next }}" />
 </form>
-<p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>
-<p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
+<div class="row">
+    <div class="col-sm-12">
+        <br>
+        <p class="text-center">{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>
+        <p class="text-center">{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
+    </div>
+</div>
 </div>
 </div>
 {% endblock %}

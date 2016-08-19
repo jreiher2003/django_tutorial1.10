@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <nav class="navbar navbar-default">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
@@ -9,13 +10,12 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="{% url 'newsletter:newsletter_home' %}">MVP Landing</a>
+    <a class="navbar-brand pull-left" href="{% url 'newsletter:newsletter_home' %}"><img src="{% static 'img/mvp.png' %}"/></a>
   </div>
   <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-      <li><a href="{% url 'newsletter:newsletter_home' %}">Home</a></li>
+      <!-- <li><a href="{% url 'newsletter:newsletter_home' %}">Home</a></li> -->
       <li><a href="{% url 'posts:post_list' %}">Posts</a></li>
-      <li><a href="{% url 'posts:post_create' %}">Create New</a></li>
       <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="{% url 'contact' %}">Contact</a></li>
       <!-- <li class="dropdown">
@@ -37,9 +37,19 @@
       <li><a href="{% url 'auth_logout' %}">Logout</a></li>
       {% else %}
       <li><a href="{% url 'registration_register' %}">Register</a></li>
-      <li><a href="{% url 'auth_login' %}">Login</a></li>
       {% endif %}
     </ul>
+      {% if not request.user.is_authenticated and not "/accounts/login/" in request.get_full_path %}
+    <form class="navbar-form navbar-right" method="POST" action="{% url 'auth_login' %}">{% csrf_token %}
+      <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="username">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="password">
+      </div>
+      <button class="btn" type="submit">Login</button>
+    </form>
+      {% endif %}
   </div><!--/.nav-collapse -->
 </div><!--/.container-fluid -->
 </div><!-- col-xs-10 col-xs-offset-1 -->

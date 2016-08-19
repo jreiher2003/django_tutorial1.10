@@ -1,0 +1,21 @@
+input.btn.btn-block {
+    background-color: #E01F7F;
+    color: #eee;
+}
+input.form-control {
+    border: 1px solid #E01F7F;
+    color: #1FE01F;
+}
+i.fa.fa-comment-o {
+    /*font-size: 3em;*/
+    color:#1FE01F;
+}
+i.fa.fa-bolt {
+    color:#E01F7F;
+    /*border: 1px solid #1FE01F;*/
+    /*font-size: 3em;*/
+    text-shadow: -1px 0 #1FE01F, 0 1px #1FE01F, 1px 0 #1FE01F, 0 -1px #1FE01F;
+}
+.thumbnail {
+    min-height: 250px;
+}
