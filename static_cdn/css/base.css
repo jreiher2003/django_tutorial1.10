@@ -1,3 +1,6 @@
+body {
+    min-height: 1000px;
+}
 h1.title {
     color: #567;
 }

@@ -3,6 +3,10 @@
 {% block style %}
 {% endblock style %}
 {% block content %}
+{% if request.user.is_authenticated %}
+    <h1>You are logged in!</h1>
+    {{ queryset }}
+{% endif %}
 {% include "jumbotron.html" %}
 <div class="container">
 {% include "signup_form.html" %}

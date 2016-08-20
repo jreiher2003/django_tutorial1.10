@@ -18,6 +18,10 @@ def home(request):
         # check instance here
         instance.save()
         context = {"title": "Thank You"}
+    if request.user.is_authenticated() and request.user.is_staff:
+        context = {
+            "queryset": [123,456]
+        }
     return render(request, "home.html", context)
 
 def example(request):
