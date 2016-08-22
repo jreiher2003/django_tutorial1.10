@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from trydjango import settings
 from .forms import ContactForm, SignUpForm
+from .models import SignUp
 
 # Create your views here.
 def home(request):
@@ -19,8 +20,9 @@ def home(request):
         instance.save()
         context = {"title": "Thank You"}
     if request.user.is_authenticated() and request.user.is_staff:
+        query = SignUp.objects.all()
         context = {
-            "queryset": [123,456]
+            "queryset": query
         }
     return render(request, "home.html", context)
 

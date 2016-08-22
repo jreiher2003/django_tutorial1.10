@@ -5,7 +5,26 @@
 {% block content %}
 {% if request.user.is_authenticated %}
     <h1>You are logged in!</h1>
-    {{ queryset }}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Full Name</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+    {% for instance in queryset %}
+        <tbody>
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ instance.email }}</td>
+                <td>{{ instance.full_name }}</td>
+                <td>{{ instance.timestamp|timesince }} ago</td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
 {% endif %}
 {% include "jumbotron.html" %}
 <div class="container">
